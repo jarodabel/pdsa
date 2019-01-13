@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
+import { PlanDocumentComponent } from './plan/plan-document/plan-document.component';
 
 const routes: Routes = [
   {
@@ -12,12 +13,24 @@ const routes: Routes = [
     component: CrisisListComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'login', component: LoginComponent },
   {
     path: 'heroes',
     component: HeroesListComponent,
     data: { title: 'Heroes List' },
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'plan/:id',
+    component: PlanDocumentComponent,
+  },
+  { path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
   },
   { path: '**', component: PageNotFoundComponent }
 ];

@@ -1,10 +1,24 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span >
-      <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
-    </span>
-    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-    <i class="material-icons">face</i>
+    <span>Qwalatee</span>
+    <span class='app-toolbar-spacing'></span>
+    <mat-icon [matMenuTriggerFor]="menu">settings</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngIf="(isAdmin)">
+        <mat-icon>supervisor_account</mat-icon>
+        <span>Admin</span>
+      </button>
+      <button mat-menu-item>
+        <span class="toolbar-login" (click)="login()" *ngIf="!authState else logoutBtn">
+          <mat-icon>input</mat-icon>
+          Login
+        </span>
+        <ng-template #logoutBtn>
+          <mat-icon>logout</mat-icon>
+          <span (click)="logout()">Logout</span>
+        </ng-template>
+      </button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
 
