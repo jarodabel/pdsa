@@ -1,0 +1,5 @@
+@import '../../../node_modules/@angular/material/theming';
+
+mat-grid-tile {
+  background: mat-color($mat-indigo, 100);
+}

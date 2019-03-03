@@ -4,7 +4,21 @@ import { NgModule } from '@angular/core';
 import { NgReduxRouterModule } from '@angular-redux/router';
 import { NgReduxModule } from '@angular-redux/store';
 import { HttpModule } from '@angular/http';
-import { MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule, MatGridListModule, MatExpansionModule, MatFormFieldModule, MatOptionModule, MatSelectModule, MatDividerModule, MatInputModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatCardModule,
+  MatGridListModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatOptionModule,
+  MatSelectModule,
+  MatDividerModule,
+  MatInputModule,
+  MatButtonModule,
+  MatDialogModule
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,10 +38,14 @@ import { NotifyService } from './notify.service';
 import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PlanTileComponent } from './plan/plan-tile/plan-tile.component';
-import { PlanDocumentComponent } from './plan/plan-document/plan-document.component';
+import {
+  PlanTileComponent,
+} from './plan/plan-tile/plan-tile.component';
+import { PlanDocumentComponent, PlanTileDialogComponent } from './plan/plan-document/plan-document.component';
 import { PlanOverviewComponent } from './plan/plan-overview/plan-overview.component';
 import { PlanAimComponent } from './plan/plan-aim/plan-aim.component';
+import { FormTeamComponent } from './plan/form-team/form-team.component';
+import { EstablishMeasuresComponent } from './plan/establish-measures/establish-measures.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +56,13 @@ import { PlanAimComponent } from './plan/plan-aim/plan-aim.component';
     CounterComponent,
     AdminComponent,
     DashboardComponent,
+    PlanTileDialogComponent,
     PlanTileComponent,
     PlanDocumentComponent,
     PlanOverviewComponent,
-    PlanAimComponent
+    PlanAimComponent,
+    FormTeamComponent,
+    EstablishMeasuresComponent
   ],
   imports: [
     BrowserModule,
@@ -67,8 +88,11 @@ import { PlanAimComponent } from './plan/plan-aim/plan-aim.component';
     MatSelectModule,
     MatDividerModule,
     MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [AuthGuard, AuthService, NotifyService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PlanTileDialogComponent]
 })
 export class AppModule {}

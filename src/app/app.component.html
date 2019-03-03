@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Qwalatee</span>
+    <span (click)="goToHome()" class="hover">Qwalatee</span>
     <span class='app-toolbar-spacing'></span>
     <mat-icon [matMenuTriggerFor]="menu">settings</mat-icon>
     <mat-menu #menu="matMenu">

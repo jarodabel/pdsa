@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+import { Plan } from '../plan.type';
 
 @Component({
   selector: 'app-plan-aim',
@@ -8,8 +11,20 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./plan-aim.component.scss']
 })
 export class PlanAimComponent implements OnInit {
-  @Input() plan;
   planForm: FormGroup;
+  plan: any;
+  @select(['currentPlan'])
+  readonly currentPlan$: Observable<object>;
+
+  plan$ = this.currentPlan$.subscribe((a: Plan) => {
+    this.plan = a;
+    this.planForm = this.fb.group({
+      planAimDescription: [a.planAimDescription],
+      planAimTypeWhy: [a.planAimTypeWhy],
+      planAimWhichSystem: [a.planAimWhichSystem],
+      planAimBlockers: [a.planAimBlockers],
+    });
+  });
 
   constructor(
     public db: AngularFirestore,
@@ -34,21 +49,5 @@ export class PlanAimComponent implements OnInit {
       planAimWhichSystem: [''],
       planAimBlockers: [''],
     });
-  }
-
-  ngOnChanges(changes: any): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    console.log(changes);
-    this.plan = changes.plan.currentValue;
-    if(this.plan){
-      this.planForm = this.fb.group({
-        planAimDescription: [this.plan.planAimDescription],
-        planAimTypeWhy: [this.plan.planAimTypeWhy],
-        planAimWhichSystem: [this.plan.planAimWhichSystem],
-        planAimBlockers: [this.plan.planAimBlockers],
-      });
-    }
-
   }
 }

@@ -1,4 +1,13 @@
-<mat-card (click)="openPlan()">
-  <mat-card-title>{{plan.data.name}}</mat-card-title>
-  <mat-card-content>{{plan.data.description}}</mat-card-content>
-</mat-card>
+
+<div class='plan-tile-container'>
+  <div class="plan-tile-container-button" *ngIf="currentUser?.admin">
+      <button mat-flat-button (click)="addUser()"><mat-icon>person_add</mat-icon>
+      </button>
+  </div>
+  <strong class="mat-display-2">{{plan.data.name}}</strong>
+  <p class="mat-body">{{plan.data.description}}</p>
+  <div class="plan-tile-container-button">
+      <button mat-flat-button (click)="openPlan()" >View Quality Document <mat-icon>open_in_new</mat-icon>
+      </button>
+  </div>
+</div>

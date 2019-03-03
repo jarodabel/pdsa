@@ -1,0 +1,24 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Form the Team
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <br>
+  <form [formGroup]="planForm" (ngSubmit)="submitHandler()" class="plan-team-form-group">
+    <mat-form-field>
+      <textarea matInput formControlName="planTeamChair" placeholder="Who will Chair the team and be responsible for team organization, meetings, and outcomes? What’s their role?">
+    </textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="planTeamMembers" placeholder="Who are the other team members?">
+    </textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="planTeamDetails" placeholder="What are the meeting details?">
+    </textarea>
+    </mat-form-field>
+    <button mat-flat-button color="accent">Submit Form</button>
+
+  </form>
+</mat-expansion-panel>

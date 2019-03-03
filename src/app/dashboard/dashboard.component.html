@@ -7,7 +7,10 @@
     <button mat-button (click)="login()">Login with Google</button>
   </ng-template>
 </mat-card>
-<mat-grid-list cols="2" rowHeight="2:1" *ngIf="afAuth.user | async" >
+<mat-card>
+    <button mat-flat-button color="primary" (click)="createNew()">Add New Document</button>
+</mat-card>
+<mat-grid-list cols="2" rowHeight="2:1" *ngIf="afAuth.user | async" md-gutter-gt-md="16px">
   <mat-grid-tile *ngFor="let plan of plans">
     <app-plan-tile [plan]=plan></app-plan-tile>
   </mat-grid-tile>

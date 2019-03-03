@@ -1,0 +1,17 @@
+:host {
+  width: 100%;
+  cursor: pointer;
+}
+
+.plan-tile-container {
+  padding: 20px;
+  
+}
+
+.plan-tile-container-button {
+  width: 100%;
+}
+
+.plan-tile-container-button > button {
+  float: right;
+}

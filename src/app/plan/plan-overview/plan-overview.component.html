@@ -4,90 +4,102 @@
       Quality Overview
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <strong>Set an aim for the Task Force</strong>
-  <p>Should be set by the Quality Improvement Committee and SMART. Is it Quality Improvement or Quality Assurance?
-    Consider: which systems will be affected by the improvement efforts?
-    What can the Task Force do or not do without the QI Committee?</p>
-  <mat-form-field>
-    <mat-select placeholder="Status">
-      <mat-option value="notStarted">Not Started</mat-option>
-      <mat-option value="inProgress">In Progress</mat-option>
-      <mat-option value="complete">Complete</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-
-  <strong>Form the Team</strong>
-  <p>Include Clinical Leader, Technical Expert, a Day-to-Day Leader, a Project Leader, and additional members. Consider
-    Board Members and/or patients, if applicable. </p>
-  <mat-form-field>
-    <mat-select placeholder="Status">
-      <mat-option value="notStarted">Not Started</mat-option>
-      <mat-option value="inProgress">In Progress</mat-option>
-      <mat-option value="complete">Complete</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-
-  <strong>Establish Measures</strong>
-  <p>What are we trying to accomplish? How will we know that a change is an improvement? What possible changes can we
-    make that will result in improvement? Use SMART measures when possible. </p>
-  <mat-form-field>
-    <mat-select placeholder="Status">
-      <mat-option value="notStarted">Not Started</mat-option>
-      <mat-option value="inProgress">In Progress</mat-option>
-      <mat-option value="complete">Complete</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-
-  <strong>Selecting Changes</strong>
-  <p>What possible changes can we make to meet and exceed measures? Some possible categories of changes are: eliminate
-    waste, improve workflow, optimize inventory, change the work environment, patient experience, improve time
-    management, reduce variation, error proofing, or service improvement. Complete a SWOT Form.</p>
-  <mat-form-field>
-    <mat-select placeholder="Status">
-      <mat-option value="notStarted">Not Started</mat-option>
-      <mat-option value="inProgress">In Progress</mat-option>
-      <mat-option value="complete">Complete</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-
-  <strong>Testing Changes (Pilot)</strong>
-  <p>Use PDSA Form. Repeat until a process or change is defined and shows improvement.</p>
-  <mat-form-field>
-    <mat-select placeholder="Status">
-      <mat-option value="notStarted">Not Started</mat-option>
-      <mat-option value="inProgress">In Progress</mat-option>
-      <mat-option value="complete">Complete</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-
-  <strong>Implementing Changes</strong>
-  <p>Formalize the change. What needs to be updated before spreading to the entire organization? Examples: updated
-    workflows, policies, procedures, training guides, eClinicalworks, job descriptions, consent forms, etc.</p>
-  <mat-form-field>
-    <mat-select placeholder="Status">
-      <mat-option value="notStarted">Not Started</mat-option>
-      <mat-option value="inProgress">In Progress</mat-option>
-      <mat-option value="complete">Complete</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-
-  <strong>Spreading the Change</strong>
-  <p>Expand the change to the entire organization. Does the project need to be moved to Quality Assurance to be
-    monitored? How often will the measures be revisited? How will we know when the process needs to be put back into
-    Quality Improvement? </p>
-  <mat-form-field>
-    <mat-select placeholder="Status">
-      <mat-option value="notStarted">Not Started</mat-option>
-      <mat-option value="inProgress">In Progress</mat-option>
-      <mat-option value="complete">Complete</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-
+  <form [formGroup]="planForm" (ngSubmit)="submitHandler()">
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="name">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Description" formControlName="description">
+    </mat-form-field>
+    <br>
+    <strong>Set an aim for the Task Force</strong>
+    <p>Should be set by the Quality Improvement Committee and SMART. Is it Quality Improvement or Quality Assurance?
+      Consider: which systems will be affected by the improvement efforts?
+      What can the Task Force do or not do without the QI Committee?</p>
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="planAimDescriptionStatus" class="plan-overview-panel-{{planForm.get('planAimDescriptionStatus').value}}">
+        <mat-option value="notStarted">Not Started</mat-option>
+        <mat-option value="inProgress">In Progress</mat-option>
+        <mat-option value="complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <br>
+    <strong>Form the Team</strong>
+    <p>Include Clinical Leader, Technical Expert, a Day-to-Day Leader, a Project Leader, and additional members.
+      Consider
+      Board Members and/or patients, if applicable. </p>
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="planFormTeamStatus" class="plan-overview-panel-{{planForm.get('planFormTeamStatus').value}}">
+        <mat-option value="notStarted">Not Started</mat-option>
+        <mat-option value="inProgress">In Progress</mat-option>
+        <mat-option value="complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <br>
+    <strong>Establish Measures</strong>
+    <p>What are we trying to accomplish? How will we know that a change is an improvement? What possible changes can we
+      make that will result in improvement? Use SMART measures when possible. </p>
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="planEstablishMeasuresStatus" class="plan-overview-panel-{{planForm.get('planEstablishMeasuresStatus').value}}">
+        <mat-option value="notStarted">Not Started</mat-option>
+        <mat-option value="inProgress">In Progress</mat-option>
+        <mat-option value="complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <br>
+    <strong>Selecting Changes</strong>
+    <p>What possible changes can we make to meet and exceed measures? Some possible categories of changes are:
+      eliminate
+      waste, improve workflow, optimize inventory, change the work environment, patient experience, improve time
+      management, reduce variation, error proofing, or service improvement. Complete a SWOT Form.</p>
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="planSelectChangesStatus" class="plan-overview-panel-{{planForm.get('planSelectChangesStatus').value}}">
+        <mat-option value="notStarted">Not Started</mat-option>
+        <mat-option value="inProgress">In Progress</mat-option>
+        <mat-option value="complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <br>
+    <strong>Testing Changes (Pilot)</strong>
+    <p>Use PDSA Form. Repeat until a process or change is defined and shows improvement.</p>
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="planTestPilotStatus" class="plan-overview-panel-{{planForm.get('planTestPilotStatus').value}}">
+        <mat-option value="notStarted">Not Started</mat-option>
+        <mat-option value="inProgress">In Progress</mat-option>
+        <mat-option value="complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <br>
+    <strong>Implementing Changes</strong>
+    <p>Formalize the change. What needs to be updated before spreading to the entire organization? Examples: updated
+      workflows, policies, procedures, training guides, eClinicalworks, job descriptions, consent forms, etc.</p>
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="planImplementChangesStatus" class="plan-overview-panel-{{planForm.get('planImplementChangesStatus').value}}">
+        <mat-option value="notStarted">Not Started</mat-option>
+        <mat-option value="inProgress">In Progress</mat-option>
+        <mat-option value="complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <br>
+    <strong>Spreading the Change</strong>
+    <p>Expand the change to the entire organization. Does the project need to be moved to Quality Assurance to be
+      monitored? How often will the measures be revisited? How will we know when the process needs to be put back into
+      Quality Improvement? </p>
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="planSpreadChangeStatus" class="plan-overview-panel-{{planForm.get('planSpreadChangeStatus').value}}">
+        <mat-option value="notStarted">Not Started</mat-option>
+        <mat-option value="inProgress">In Progress</mat-option>
+        <mat-option value="complete">Complete</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <button mat-flat-button color="accent">Submit Form</button>
+  </form>
 </mat-expansion-panel>

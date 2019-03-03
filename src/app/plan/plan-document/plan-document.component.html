@@ -1,16 +1,8 @@
 <mat-accordion>
   <app-plan-overview></app-plan-overview>
-  <app-plan-aim [plan]=plan></app-plan-aim>
-
-  <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Form The Team
-      </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
-  </mat-expansion-panel> -->
+  <app-plan-aim></app-plan-aim>
+  <app-form-team></app-form-team>
+  <app-establish-measures></app-establish-measures>
 </mat-accordion>
+<router-outlet name="dialog"></router-outlet>
+

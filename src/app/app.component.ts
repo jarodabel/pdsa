@@ -57,4 +57,8 @@ export class AppComponent {
         this.isAdmin = a[0] ? a[0]['admin'] : false;
       });
   }
+
+  goToHome() {
+    this.router.navigate(['dashboard']);
+  }
 }

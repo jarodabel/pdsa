@@ -4,20 +4,21 @@
       Set Aim For The Task Force
     </mat-panel-title>
   </mat-expansion-panel-header>
+  <br>
   <form [formGroup]="planForm" (ngSubmit)="submitHandler()" class="plan-aim-form-group">
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <textarea matInput formControlName="planAimDescription" placeholder="Should be set by the Quality Improvement Committee and SMART.">
     </textarea>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <textarea matInput formControlName="planAimTypeWhy" placeholder="Is it Quality Improvement or Quality Assurance? Why?"></textarea>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <textarea matInput formControlName="planAimWhichSystem" placeholder=" Which systems will be affected by the improvement efforts?"></textarea>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <textarea matInput formControlName="planAimBlockers" placeholder="What can the Task Force do or not do without the QI Committee?"></textarea>
     </mat-form-field>
-    <button>Submit Form</button>
+    <button mat-flat-button color="accent">Submit Form</button>
   </form>
 </mat-expansion-panel>

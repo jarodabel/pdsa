@@ -1,0 +1,23 @@
+export interface Plan {
+  id;
+  name;
+  description;
+  planAimDescription;
+  planAimTypeWhy;
+  planAimWhichSystem;
+  planAimBlockers;
+  planAimDescriptionStatus;
+  planFormTeamStatus;
+  planEstablishMeasuresStatus;
+  planSelectChangesStatus;
+  planTestPilotStatus;
+  planImplementChangesStatus;
+  planSpreadChangeStatus;
+  planTeamChair;
+  planTeamMembers;
+  planTeamDetails;
+  planAccomplishmentDescription;
+  planAccomplishmentResult;
+  planAccomplishmentOutcomes;
+  planAccomplishmentBaseline;
+}

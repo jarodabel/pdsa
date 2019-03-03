@@ -1,0 +1,17 @@
+@import '../../../../node_modules/@angular/material/theming';
+
+mat-expansion-panel-header {
+  background-color: mat-color($mat-orange, 500);
+}
+
+.plan-overview-panel-notStarted {
+  background-color: mat-color($mat-red, 500);
+}
+
+.plan-overview-panel-inProgress {
+  background-color: mat-color($mat-yellow, 500);
+}
+
+.plan-overview-panel-complete {
+  background-color: mat-color($mat-green, 500);
+}

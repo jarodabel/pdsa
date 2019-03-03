@@ -1,0 +1,32 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Establish Measures
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <br>
+  For assistance, refer to:
+  <a href='http://www.ihi.org/resources/Pages/HowtoImprove/ScienceofImprovementEstablishingMeasures.aspx' target="_blank">Institute for Healthcare Improvement</a>
+  <br>
+  <form [formGroup]="planForm" (ngSubmit)="submitHandler()" class="plan-measures-form-group">
+    <mat-form-field>
+      <textarea matInput formControlName="planAccomplishmentDescription" placeholder="What are we trying to accomplish?">
+    </textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="planAccomplishmentResult" placeholder="How will we know that a change is an improvement?">
+    </textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="planAccomplishmentOutcomes" placeholder="What possible changes can we make that will result in improvement? List at least 3 options. Use SMART measures when
+      possible. (Specific, Measurable, Achievable, Results-Focused, Time-Bound)">
+    </textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="planAccomplishmentBaseline" placeholder="What are the baseline numbers or reports? Attach, if necessary.">
+    </textarea>
+    </mat-form-field>
+    <button mat-flat-button color="accent">Submit Form</button>
+
+  </form>
+</mat-expansion-panel>
