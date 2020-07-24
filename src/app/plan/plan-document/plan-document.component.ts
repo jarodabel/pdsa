@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   templateUrl: './plan-document.component.html',
   styleUrls: ['./plan-document.component.scss']
 })
-export class PlanDocumentComponent implements OnInit {
+export class PlanDocumentComponent implements OnInit, AfterViewInit {
   static readonly CURRENT_PLAN = 'CURRENT_PLAN';
   planForm: FormGroup;
   plan;
@@ -31,7 +31,7 @@ export class PlanDocumentComponent implements OnInit {
     private fb: FormBuilder,
     public db: AngularFirestore,
     public dialog: MatDialog
-  ) {}
+  ) { }
 
   async submitHandler() {
     const formValue = this.planForm.value;
@@ -47,17 +47,6 @@ export class PlanDocumentComponent implements OnInit {
 
   ngOnInit() {
     this.currentPlan$.subscribe(a => (this.currentPlan = a));
-
-    const dialogRef = this.dialog.open(PlanTileDialogComponent, {
-      width: '250px',
-      data: { userList: this.currentPlan.users }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.name = result;
-    });
-    
     this.planForm = this.fb.group({
       name: [''],
       description: ['']
@@ -80,6 +69,18 @@ export class PlanDocumentComponent implements OnInit {
       .subscribe();
   }
 
+  // ngAfterViewInit(): void {
+  //   const dialogRef = this.dialog.open(PlanTileDialogComponent, {
+  //     width: '250px',
+  //     data: { userList: this.currentPlan.users }
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed', result);
+  //     // this.name = result;
+  //   });
+  // }
+
   fillForm() {
     const updatePlanFormData = {
       name: [this.plan['name'], Validators.required],
@@ -98,7 +99,7 @@ export class PlanTileDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<PlanTileDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) { }
 
   ngOnInit() {
     console.log('hello');

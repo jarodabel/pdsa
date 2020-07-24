@@ -41,7 +41,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {
   PlanTileComponent,
 } from './plan/plan-tile/plan-tile.component';
-import { PlanDocumentComponent, PlanTileDialogComponent } from './plan/plan-document/plan-document.component';
+import {
+  PlanDocumentComponent,
+  PlanTileDialogComponent
+} from './plan/plan-document/plan-document.component';
 import { PlanOverviewComponent } from './plan/plan-overview/plan-overview.component';
 import { PlanAimComponent } from './plan/plan-aim/plan-aim.component';
 import { FormTeamComponent } from './plan/form-team/form-team.component';
@@ -93,6 +96,6 @@ import { EstablishMeasuresComponent } from './plan/establish-measures/establish-
   ],
   providers: [AuthGuard, AuthService, NotifyService],
   bootstrap: [AppComponent],
-  entryComponents: [PlanTileDialogComponent]
+  entryComponents: [PlanDocumentComponent, PlanTileDialogComponent]
 })
-export class AppModule {}
+export class AppModule { }
